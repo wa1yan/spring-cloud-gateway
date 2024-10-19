@@ -37,8 +37,8 @@ public class GatewayConfig {
                                         HelloResponse.class,
                                         HelloResponse.class,
                                         MediaType.APPLICATION_JSON_VALUE,
-                                        (exchange, response) -> Mono.just(modifyResponse(response))
-                                )
+                                        (exchange, response) -> Mono.just(modifyResponse(response)))
+                                .prefixPath("/v1")
                         )
                         .uri("http://localhost:8081")
                 )
