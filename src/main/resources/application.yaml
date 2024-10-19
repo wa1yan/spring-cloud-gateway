@@ -1,18 +1,30 @@
 spring:
   application:
     name: spring-cloud-gateway
-  cloud:
-    gateway:
-      routes:
-        - id: greet-service
-          uri: http://localhost:8081
-          predicates:
-            - Path=/greet
-          filters:
-            - AddRequestHeader=gateway-req-header,gtway-hvalue
-            - AddResponseHeader=gateway-resp-header,gtway-hvalue
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: greet-service
+#          uri: http://localhost:8081
+#          predicates:
+#            - Path=/greet
+#          filters:
+#            - AddRequestHeader=gateway-req-header,gtway-hvalue
+#            - AddResponseHeader=gateway-resp-header,gtway-hvalue
+#            - name: Retry
+#              args:
+#                retries: 3
+#                method: GET
+#                backoff:
+#                  firstBackoff: 50ms
+#                  maxBackoff: 500ms
 
 server:
   port: 8080
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.cloud.gateway.filter.RetryGatewayFilter: DEBUG
 
 
